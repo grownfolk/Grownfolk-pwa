@@ -1,0 +1,16 @@
+{
+  "name": "Grown Folk United",
+  "short_name": "GrownFolk",
+  "start_url": "https://grownfolk.us/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#00274D",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://grownfolk.github.io/Grownfolk-pwa/grownfolk-icon192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
