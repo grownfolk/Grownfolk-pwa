@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Connect Wallet - Grown Folk</title>
+  <script src="https://unpkg.com/@walletconnect/web3-provider@1.7.8/dist/umd/index.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.3.4/dist/web3.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #00274D;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      color: white;
+      font-size: 26px;
+    }
+    #wallet-address {
+      margin-top: 20px;
+      font-size: 16px;
+      word-break: break-all;
+      color: #C0C0C0;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #C8102E;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #a60f25;
+    }
+  </style>
+</head>
+<body>
+  <h1>Connect Your Wallet</h1>
+  <p>Securely link your wallet to access member features and verify your profile.</p>
+  <button id="connectBtn">Connect with WalletConnect</button>
+  <div id="wallet-address"></div>
+
+  <script>
+    const connectBtn = document.getElementById("connectBtn");
+    const walletAddress = document.getElementById("wallet-address");
+
+    connectBtn.addEventListener("click", async () => {
+      const provider = new WalletConnectProvider.default({
+        rpc: {
+          1: "https://mainnet.infura.io/v3/..."  // Replace with your Infura ID if needed
+        },
+      });
+
+      await provider.enable();
+      const web3 = new Web3(provider);
+      const accounts = await web3.eth.getAccounts();
+      walletAddress.innerText = `Wallet Connected: ${accounts[0]}`;
+
+      // Optionally store address in localStorage or send to your server
+    });
+  </script>
+</body>
+</html>
