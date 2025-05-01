@@ -11,6 +11,11 @@
       "src": "https://grownfolk.github.io/Grownfolk-pwa/grownfolk-icon192.png",
       "sizes": "192x192",
       "type": "image/png"
+    },
+    {
+      "src": "https://grownfolk.github.io/Grownfolk-pwa/grownfolk-icon512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ]
 }
